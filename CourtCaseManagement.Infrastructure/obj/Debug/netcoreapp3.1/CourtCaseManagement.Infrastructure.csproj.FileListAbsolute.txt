@@ -1,0 +1,12 @@
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.Infrastructure\bin\Debug\netcoreapp3.1\CourtCaseManagement.Infrastructure.deps.json
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.Infrastructure\bin\Debug\netcoreapp3.1\CourtCaseManagement.Infrastructure.dll
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.Infrastructure\bin\Debug\netcoreapp3.1\CourtCaseManagement.Infrastructure.pdb
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.Infrastructure\bin\Debug\netcoreapp3.1\CourtCaseManagement.ApplicationCore.dll
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.Infrastructure\bin\Debug\netcoreapp3.1\CourtCaseManagement.ApplicationCore.pdb
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.Infrastructure\obj\Debug\netcoreapp3.1\CourtCaseManagement.Infrastructure.csprojAssemblyReference.cache
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.Infrastructure\obj\Debug\netcoreapp3.1\CourtCaseManagement.Infrastructure.AssemblyInfoInputs.cache
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.Infrastructure\obj\Debug\netcoreapp3.1\CourtCaseManagement.Infrastructure.AssemblyInfo.cs
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.Infrastructure\obj\Debug\netcoreapp3.1\CourtCaseManagement.Infrastructure.csproj.CopyComplete
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.Infrastructure\obj\Debug\netcoreapp3.1\CourtCaseManagement.Infrastructure.dll
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.Infrastructure\obj\Debug\netcoreapp3.1\CourtCaseManagement.Infrastructure.pdb
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.Infrastructure\obj\Debug\netcoreapp3.1\CourtCaseManagement.Infrastructure.csproj.CoreCompileInputs.cache

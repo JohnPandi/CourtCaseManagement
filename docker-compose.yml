@@ -1,0 +1,44 @@
+version: '3.4'
+
+services:
+  court-case-management-postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "admin"
+    ports:
+      - "15433:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - court-case-management-network
+
+  court-case-management-pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+    ports:
+      - "16544:80"
+    depends_on:
+      - court-case-management-postgres
+    networks:
+      - court-case-management-network
+
+  courtcasemanagement.api:
+    image: ${DOCKER_REGISTRY-}courtcasemanagementapi
+    build:
+      context: .
+      dockerfile: CourtCaseManagement.Api/Dockerfile
+    environment:
+      - DB_CONNECTION_STRING=host=ourt-case-management-postgres;port=5432;database=postgres;username=postgres;password=admin;
+    depends_on:
+      - court-case-management-postgres
+      - court-case-management-pgadmin
+    networks:
+      - court-case-management-network
+
+networks: 
+  court-case-management-network:
+    driver: bridge

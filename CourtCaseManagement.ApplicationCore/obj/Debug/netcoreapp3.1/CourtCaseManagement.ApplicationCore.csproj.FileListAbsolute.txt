@@ -1,0 +1,9 @@
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.ApplicationCore\bin\Debug\netcoreapp3.1\CourtCaseManagement.ApplicationCore.deps.json
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.ApplicationCore\bin\Debug\netcoreapp3.1\CourtCaseManagement.ApplicationCore.dll
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.ApplicationCore\bin\Debug\netcoreapp3.1\CourtCaseManagement.ApplicationCore.pdb
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.ApplicationCore\obj\Debug\netcoreapp3.1\CourtCaseManagement.ApplicationCore.csprojAssemblyReference.cache
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.ApplicationCore\obj\Debug\netcoreapp3.1\CourtCaseManagement.ApplicationCore.AssemblyInfoInputs.cache
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.ApplicationCore\obj\Debug\netcoreapp3.1\CourtCaseManagement.ApplicationCore.AssemblyInfo.cs
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.ApplicationCore\obj\Debug\netcoreapp3.1\CourtCaseManagement.ApplicationCore.dll
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.ApplicationCore\obj\Debug\netcoreapp3.1\CourtCaseManagement.ApplicationCore.pdb
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.ApplicationCore\obj\Debug\netcoreapp3.1\CourtCaseManagement.ApplicationCore.csproj.CoreCompileInputs.cache
