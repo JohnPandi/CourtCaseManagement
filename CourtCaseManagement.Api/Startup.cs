@@ -27,6 +27,7 @@ namespace CourtCaseManagement.Api
             Config.AddApplicationCoreClassDependencyInject(services);
 
             services.AddControllers();
+            services.AddApiVersioning();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +60,8 @@ namespace CourtCaseManagement.Api
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Court Case Management V1");
                 c.RoutePrefix = "swagger";
+
+                c.InjectStylesheet("/css/custom_swagger.css");
             });
         }
     }

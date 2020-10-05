@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "nT2EL16tfIcscE/ekI+MEk7MCJEPmlhHOtSUa8cP9+4v9foZ4E9EfA8bqFiEVUdgMNxoq9atGxjHAC3bVdO6Cg==",
+  "dgSpecHash": "tbWyozc8N8c1SA+8QCh2+asl03yX/CJaAsU6IMgEv6EGLe5j7OfpRmctlMUU3DTJSpsfbG3bHT3WKYZsoswGQA==",
   "success": true,
   "projectFilePath": "C:\\Thiago\\workspace\\CourtCaseManagement\\CourtCaseManagement.Api\\CourtCaseManagement.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\thiag\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.0.0\\microsoft.aspnetcore.jsonpatch.3.0.0.nupkg.sha512",
     "C:\\Users\\thiag\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.0.0\\microsoft.aspnetcore.mvc.newtonsoftjson.3.0.0.nupkg.sha512",
+    "C:\\Users\\thiag\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\4.1.1\\microsoft.aspnetcore.mvc.versioning.4.1.1.nupkg.sha512",
     "C:\\Users\\thiag\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\thiag\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\thiag\\.nuget\\packages\\microsoft.csharp\\4.6.0\\microsoft.csharp.4.6.0.nupkg.sha512",

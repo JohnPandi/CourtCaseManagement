@@ -7,9 +7,9 @@ namespace CourtCaseManagement.ApplicationCore.Interfaces
 {
     public interface IProcessFacade
     {
-        Task<ProcessResponseTO> AddAsync(ProcessRequestTO gameTO);
+        Task<ProcessResponseTO> AddAsync(ProcessRequestTO processRequestTO);
         Task<IList<ProcessResponseTO>> ListAsync(ProcessFilterTO filterTO);
-        Task UpdateAsync(Guid? gameId, string name);
-        Task DeleteAsync(Guid? gameId);
+        Task UpdateAsync(Guid? processId, ProcessRequestTO processRequestTO);
+        Task DeleteAsync(Guid? processId);
     }
 }

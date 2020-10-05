@@ -38,3 +38,4 @@ C:\Thiago\workspace\CourtCaseManagement\bin\Debug\Microsoft.EntityFrameworkCore.
 C:\Thiago\workspace\CourtCaseManagement\bin\Debug\CourtCaseManagement.ApplicationCore.pdb
 C:\Thiago\workspace\CourtCaseManagement\bin\Debug\CourtCaseManagement.Infrastructure.pdb
 C:\Thiago\workspace\CourtCaseManagement\bin\Debug\CourtCaseManagement.Api.xml
+C:\Thiago\workspace\CourtCaseManagement\bin\Debug\Microsoft.AspNetCore.Mvc.Versioning.dll

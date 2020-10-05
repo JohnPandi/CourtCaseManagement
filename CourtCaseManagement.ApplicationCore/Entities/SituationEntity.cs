@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 
 namespace CourtCaseManagement.ApplicationCore.Entities
 {
@@ -6,7 +6,6 @@ namespace CourtCaseManagement.ApplicationCore.Entities
     {
         public string Name { get; set; }
         public bool? Finished { get; set; }
-        public Guid? ProcessId { get; set; }
-        public ProcessEntity Process { get; set; }
+        public IList<ProcessEntity> Processes { get; set; }
     }
 }

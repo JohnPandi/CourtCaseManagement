@@ -20,7 +20,7 @@ namespace CourtCaseManagement.ApplicationCore.Facades
             throw new NotImplementedException();
         }
 
-        public Task UpdateAsync(Guid? gameId, string name)
+        public Task UpdateAsync(Guid? gameId, ProcessRequestTO name)
         {
             throw new NotImplementedException();
         }

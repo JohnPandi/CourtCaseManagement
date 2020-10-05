@@ -23,12 +23,9 @@ namespace CourtCaseManagement.Infrastructure.Data.Config
             builder.Property(x => x.Finished)
                 .HasColumnName("finished");
 
-            builder.Property(x => x.ProcessId)
-                .HasColumnName("process_id");
-
-            builder
-                .HasOne(p => p.Process)
-                .WithMany(s => s.Situations);
+            builder.HasMany(p => p.Processes)
+                .WithOne(s => s.Situation)
+                .IsRequired();
         }
     }
 }

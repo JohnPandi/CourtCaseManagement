@@ -2,6 +2,7 @@ version: '3.4'
 
 services:
   court-case-management-postgres:
+    container_name: CourtCaseManagement_Postgres
     image: postgres
     restart: always
     environment:
@@ -15,6 +16,7 @@ services:
       - court-case-management-network
 
   court-case-management-pgadmin:
+    container_name: CourtCaseManagement_PgAdmin
     image: dpage/pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: "admin"
@@ -27,12 +29,18 @@ services:
       - court-case-management-network
 
   courtcasemanagement.api:
+    container_name: CourtCaseManagement_WebApi
     image: ${DOCKER_REGISTRY-}courtcasemanagementapi
     build:
       context: .
       dockerfile: CourtCaseManagement.Api/Dockerfile
+    ports:
+      - "44360:443"
     environment:
-      - DB_CONNECTION_STRING=host=ourt-case-management-postgres;port=5432;database=postgres;username=postgres;password=admin;
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_HTTPS_PORT=44360
+      - DB_CONNECTION_STRING=host=court-case-management-postgres;port=5432;database=postgres;username=postgres;password=admin;
     depends_on:
       - court-case-management-postgres
       - court-case-management-pgadmin

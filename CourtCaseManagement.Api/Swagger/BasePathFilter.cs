@@ -16,7 +16,7 @@ namespace CourtCaseManagement.Api.Swagger
 
         public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
         {
-            var basePath = $"{this.BasePath}";
+            var basePath = $"{this.BasePath}/{swaggerDoc.Info.Version}";
             swaggerDoc.Servers.Add(new OpenApiServer() { Url = basePath });
             var pathsToModify = swaggerDoc.Paths.Where(p => p.Key.StartsWith(basePath)).ToList();
 
@@ -29,7 +29,6 @@ namespace CourtCaseManagement.Api.Swagger
                     swaggerDoc.Paths.Add(newKey, path.Value);
                 }
             }
-
         }
     }
 }

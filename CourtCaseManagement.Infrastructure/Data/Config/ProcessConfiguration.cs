@@ -17,6 +17,15 @@ namespace CourtCaseManagement.Infrastructure.Data.Config
                 .HasColumnName("id")
                 .IsRequired();
 
+            builder.Property(x => x.Version)
+                .HasColumnName("version");
+
+            builder.Property(x => x.UpdateDate)
+                .HasColumnName("update_date");
+
+            builder.Property(x => x.UpdateUserName)
+                .HasColumnName("update_user_name");
+
             builder.Property(x => x.Description)
                 .HasColumnName("description");
 
@@ -32,12 +41,15 @@ namespace CourtCaseManagement.Infrastructure.Data.Config
             builder.Property(x => x.UnifiedProcessNumber)
                 .HasColumnName("unified_process_number");
 
+            builder.Property(x => x.SituationId)
+                .HasColumnName("situation_id");
+
             builder.HasMany(r => r.Responsibles)
                 .WithOne(p => p.Process)
                 .IsRequired();
 
-            builder.HasMany(s => s.Situations)
-                .WithOne(p => p.Process)
+            builder.HasOne(s => s.Situation)
+                .WithMany(p => p.Processes)
                 .IsRequired();
         }
     }

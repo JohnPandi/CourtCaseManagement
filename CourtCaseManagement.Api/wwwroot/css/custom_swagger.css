@@ -1,0 +1,3 @@
+﻿#swagger-ui > section > div.swagger-ui > div:nth-child(2) > div.scheme-container > section > div:nth-child(1) {
+    display: none;
+}

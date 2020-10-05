@@ -12,6 +12,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace CourtCaseManagement.Api
 {
@@ -57,8 +58,11 @@ namespace CourtCaseManagement.Api
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
 
+                c.OperationFilter<RemoveVersionParameterFilter>();
+                c.DocumentFilter<ReplaceVersionWithExactValueInPathFilter>();
                 c.DocumentFilter<BasePathFilter>("/courtCaseManagement");
                 c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+                c.CustomSchemaIds(schema => $"{schema.FullName}{Regex.Match(schema.Namespace.ToString(), @"(?<=\.)v[0-9]*$")}");
             });
 
             services.AddSwaggerGenNewtonsoftSupport();

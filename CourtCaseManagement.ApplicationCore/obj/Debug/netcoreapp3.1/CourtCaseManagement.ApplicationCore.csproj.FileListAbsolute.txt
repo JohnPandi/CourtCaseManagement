@@ -7,3 +7,5 @@ C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.ApplicationCore\obj\
 C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.ApplicationCore\obj\Debug\netcoreapp3.1\CourtCaseManagement.ApplicationCore.dll
 C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.ApplicationCore\obj\Debug\netcoreapp3.1\CourtCaseManagement.ApplicationCore.pdb
 C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.ApplicationCore\obj\Debug\netcoreapp3.1\CourtCaseManagement.ApplicationCore.csproj.CoreCompileInputs.cache
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.ApplicationCore\obj\Debug\netcoreapp3.1\CourtCaseManagement.ApplicationCore.Messages.Messaging.resources
+C:\Thiago\workspace\CourtCaseManagement\CourtCaseManagement.ApplicationCore\obj\Debug\netcoreapp3.1\CourtCaseManagement.ApplicationCore.csproj.GenerateResource.cache

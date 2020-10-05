@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "WLMhWGM+SuEroAFm1baKTRH2huE3Z3U+Ub1tzfj1Zvm1Nhh9ltJxnDPnSFCFNLgcOSAw9foIEisMPYUrU+pG6A==",
+  "dgSpecHash": "VzOeN2TWh8tlgAmkXCq1auPQXr/0/SvCc8SHWs4vtrO/3xtgIsF/xLK2gv+sJioR+QrqJCcf1Wxb6mXfGhwTIw==",
   "success": true,
   "projectFilePath": "C:\\Thiago\\workspace\\CourtCaseManagement\\CourtCaseManagement.Test\\CourtCaseManagement.Test.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\thiag\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.0.0\\microsoft.aspnetcore.jsonpatch.3.0.0.nupkg.sha512",
     "C:\\Users\\thiag\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.0.0\\microsoft.aspnetcore.mvc.newtonsoftjson.3.0.0.nupkg.sha512",
     "C:\\Users\\thiag\\.nuget\\packages\\microsoft.aspnetcore.mvc.testing\\3.1.8\\microsoft.aspnetcore.mvc.testing.3.1.8.nupkg.sha512",
+    "C:\\Users\\thiag\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\4.1.1\\microsoft.aspnetcore.mvc.versioning.4.1.1.nupkg.sha512",
     "C:\\Users\\thiag\\.nuget\\packages\\microsoft.aspnetcore.testhost\\3.1.8\\microsoft.aspnetcore.testhost.3.1.8.nupkg.sha512",
     "C:\\Users\\thiag\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\thiag\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
