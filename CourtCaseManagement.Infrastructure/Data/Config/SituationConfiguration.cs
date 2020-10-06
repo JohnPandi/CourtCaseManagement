@@ -24,8 +24,7 @@ namespace CourtCaseManagement.Infrastructure.Data.Config
                 .HasColumnName("finished");
 
             builder.HasMany(p => p.Processes)
-                .WithOne(s => s.Situation)
-                .IsRequired();
+                .WithOne(s => s.Situation);
         }
     }
 }

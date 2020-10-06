@@ -3,8 +3,10 @@ using CourtCaseManagement.ApplicationCore.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using CourtCaseManagement.ApplicationCore.Helpers;
 
 namespace CourtCaseManagement.Infrastructure.Data
 {
@@ -50,6 +52,26 @@ namespace CourtCaseManagement.Infrastructure.Data
         public async Task<IDbContextTransaction> BeginTransactionAsync()
         {
             return await _dbContext.Database.BeginTransactionAsync();
+        }
+
+        public async Task<int> CountAsync(ISpecification<T> spec)
+        {
+            return await ApplySpecification(spec).CountAsync();
+        }
+
+        public async Task<T> FirstOrDefaultAsync(ISpecification<T> spec)
+        {
+            return await ApplySpecification(spec).FirstOrDefaultAsync();
+        }
+
+        public async Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec)
+        {
+            return await ApplySpecification(spec).ToListAsync();
+        }
+
+        protected IQueryable<T> ApplySpecification(ISpecification<T> spec)
+        {
+            return SpecificationEvaluator<T>.GetQuery(_dbContext.Set<T>().AsQueryable(), spec);
         }
     }
 }

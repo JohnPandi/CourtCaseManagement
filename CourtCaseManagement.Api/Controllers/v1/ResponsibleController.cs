@@ -34,7 +34,7 @@ namespace CourtCaseManagement.Api.Controllers
         ///**Modelo de Dados** *(corpo da requisição, body)*
         ///|Parâmetro|||Obrigatório|Tipo|Tamanho|Descrição|
         ///|---|---|---|:---:|:---:|---|---|
-        ///|**cpf**|||✔️|int||<span>CPF.</span>|
+        ///|**cpf**|||✔️|long||<span>CPF.</span>|
         ///|**mail**|||✔️|string|400|<span>E-mail.</span>|
         ///|**name**|||✔️|string|400|<span>Nome.</span>|
         ///|**photograph**|||✔️|string||<span>Foto.</span>|
@@ -68,9 +68,9 @@ namespace CourtCaseManagement.Api.Controllers
         ///**Modelo de Dados** *(corpo da requisição, body)*
         ///|Parâmetro|||Obrigatório|Tipo|Tamanho|Descrição|
         ///|---|---|---|:---:|:---:|---|---|
-        ///|**cpf**|||❌|int||<span>CPF.</span>|
+        ///|**cpf**|||❌|long||<span>CPF.</span>|
         ///|**name**|||❌|string|400|<span>Nome.</span>|
-        ///|**linkedProcessId**|||❌|guid||<span>Processo vinculado (processo pai).</span>|
+        ///|**unifiedProcessNumber**|||❌|string||<span>Número do processo unificado.</span>|
         ///|**page**|||❌|int||<span>Número da Página.</span><br/><span>**Valor Padrão**: 1</span>|
         ///|**perPage**|||❌|int||<span>Quantidade de registros por página.</span><br/><span>**Valor Padrão**: 10</span><br/><span>**Valor Máximo**: 50</span>|
         /// </remarks>

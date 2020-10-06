@@ -45,12 +45,10 @@ namespace CourtCaseManagement.Infrastructure.Data.Config
                 .HasColumnName("situation_id");
 
             builder.HasMany(r => r.Responsibles)
-                .WithOne(p => p.Process)
-                .IsRequired();
+                .WithOne(p => p.Process);
 
             builder.HasOne(s => s.Situation)
-                .WithMany(p => p.Processes)
-                .IsRequired();
+                .WithMany(p => p.Processes);
         }
     }
 }

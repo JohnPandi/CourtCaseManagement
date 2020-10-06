@@ -14,5 +14,8 @@ namespace CourtCaseManagement.ApplicationCore.Interfaces
         Task UpdateAsync(T entity);
         Task DeleteAsync(T entity);
         Task<IDbContextTransaction> BeginTransactionAsync();
+        Task<int> CountAsync(ISpecification<T> spec);
+        Task<T> FirstOrDefaultAsync(ISpecification<T> spec);
+        Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec);
     }
 }

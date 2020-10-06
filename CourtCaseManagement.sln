@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourtCaseManagement.Infrast
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourtCaseManagement.Test", "CourtCaseManagement.Test\CourtCaseManagement.Test.csproj", "{20709CA8-C087-4D25-884E-978E577BEDBF}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{02D68B2B-BDCB-4406-8ECD-70C1CDC88233}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{20709CA8-C087-4D25-884E-978E577BEDBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20709CA8-C087-4D25-884E-978E577BEDBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20709CA8-C087-4D25-884E-978E577BEDBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02D68B2B-BDCB-4406-8ECD-70C1CDC88233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02D68B2B-BDCB-4406-8ECD-70C1CDC88233}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02D68B2B-BDCB-4406-8ECD-70C1CDC88233}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02D68B2B-BDCB-4406-8ECD-70C1CDC88233}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

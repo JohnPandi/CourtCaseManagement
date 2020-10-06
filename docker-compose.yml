@@ -19,7 +19,7 @@ services:
     container_name: CourtCaseManagement_PgAdmin
     image: dpage/pgadmin4
     environment:
-      PGADMIN_DEFAULT_EMAIL: "admin"
+      PGADMIN_DEFAULT_EMAIL: "thiagoautran@gmail.com"
       PGADMIN_DEFAULT_PASSWORD: "admin"
     ports:
       - "16544:80"
@@ -35,11 +35,9 @@ services:
       context: .
       dockerfile: CourtCaseManagement.Api/Dockerfile
     ports:
-      - "44360:443"
+      - "44360:80"
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;http://+:80
-      - ASPNETCORE_HTTPS_PORT=44360
+      - ASPNETCORE_URLS=http://+:80
       - DB_CONNECTION_STRING=host=court-case-management-postgres;port=5432;database=postgres;username=postgres;password=admin;
     depends_on:
       - court-case-management-postgres

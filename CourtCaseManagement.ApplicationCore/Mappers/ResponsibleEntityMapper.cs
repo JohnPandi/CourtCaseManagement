@@ -7,7 +7,7 @@ namespace CourtCaseManagement.ApplicationCore.Mappers
 {
     public static class ResponsibleEntityMapper
     {
-        public static ResponsibleResponseTO ToResponsibleEntity(this ResponsibleEntity responsibleEntity)
+        public static ResponsibleResponseTO ToResponsibleResponseTO(this ResponsibleEntity responsibleEntity)
         {
             if (responsibleEntity == null)
             {
@@ -24,7 +24,7 @@ namespace CourtCaseManagement.ApplicationCore.Mappers
             };
         }
 
-        public static IList<ResponsibleResponseTO> ToListResponsibleEntity(this IList<ResponsibleEntity> listEntity)
+        public static IList<ResponsibleResponseTO> ToListResponsibleResponseTO(this IList<ResponsibleEntity> listEntity)
         {
             if (listEntity == null)
             {
@@ -37,7 +37,7 @@ namespace CourtCaseManagement.ApplicationCore.Mappers
             {
                 if (entity != null)
                 {
-                    list.Add(entity.ToResponsibleEntity());
+                    list.Add(entity.ToResponsibleResponseTO());
                 }
             });
 

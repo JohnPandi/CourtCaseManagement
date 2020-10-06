@@ -4,8 +4,8 @@ namespace CourtCaseManagement.ApplicationCore.Entities
 {
     public class SituationEntity : BaseEntity
     {
-        public string Name { get; set; }
-        public bool? Finished { get; set; }
-        public IList<ProcessEntity> Processes { get; set; }
+        public virtual string Name { get; set; }
+        public virtual bool? Finished { get; set; }
+        public virtual IList<ProcessEntity> Processes { get; set; }
     }
 }

@@ -5,7 +5,7 @@ namespace CourtCaseManagement.ApplicationCore.TOs
     public class ResponsibleRequestTO
     {
         [JsonProperty("cpf")]
-        public int? Cpf { get; set; }
+        public long? Cpf { get; set; }
 
         [JsonProperty("mail")]
         public string Mail { get; set; }

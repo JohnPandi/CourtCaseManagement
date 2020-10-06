@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "VzOeN2TWh8tlgAmkXCq1auPQXr/0/SvCc8SHWs4vtrO/3xtgIsF/xLK2gv+sJioR+QrqJCcf1Wxb6mXfGhwTIw==",
+  "dgSpecHash": "1klHkC5dS1xMC/5mzVTlTqFJ1k1PD+DRYTwBkSwjvZyqBy0GjKgjYZD8NYrosgpOUOrAlNFckHOOCJuzok8efQ==",
   "success": true,
   "projectFilePath": "C:\\Thiago\\workspace\\CourtCaseManagement\\CourtCaseManagement.Test\\CourtCaseManagement.Test.csproj",
   "expectedPackageFiles": [
@@ -18,7 +18,7 @@
     "C:\\Users\\thiag\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\3.1.8\\microsoft.entityframeworkcore.abstractions.3.1.8.nupkg.sha512",
     "C:\\Users\\thiag\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\3.1.8\\microsoft.entityframeworkcore.analyzers.3.1.8.nupkg.sha512",
     "C:\\Users\\thiag\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\3.1.8\\microsoft.entityframeworkcore.inmemory.3.1.8.nupkg.sha512",
-    "C:\\Users\\thiag\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\3.1.4\\microsoft.entityframeworkcore.relational.3.1.4.nupkg.sha512",
+    "C:\\Users\\thiag\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\3.1.8\\microsoft.entityframeworkcore.relational.3.1.8.nupkg.sha512",
     "C:\\Users\\thiag\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.8\\microsoft.extensions.caching.abstractions.3.1.8.nupkg.sha512",
     "C:\\Users\\thiag\\.nuget\\packages\\microsoft.extensions.caching.memory\\3.1.8\\microsoft.extensions.caching.memory.3.1.8.nupkg.sha512",
     "C:\\Users\\thiag\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.8\\microsoft.extensions.configuration.3.1.8.nupkg.sha512",

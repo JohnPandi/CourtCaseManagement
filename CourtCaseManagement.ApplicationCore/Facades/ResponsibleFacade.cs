@@ -8,31 +8,31 @@ namespace CourtCaseManagement.ApplicationCore.Facades
 {
     public class ResponsibleFacade : IResponsibleFacade
     {
-        private readonly IProcessService _processService;
+        private readonly IResponsibleService _responsibleService;
 
-        public ResponsibleFacade(IProcessService processService)
+        public ResponsibleFacade(IResponsibleService responsibleService)
         {
-            _processService = processService;
+            _responsibleService = responsibleService;
         }
 
-        public Task<ResponsibleResponseTO> AddAsync(ResponsibleRequestTO responsibleRequestTO)
+        public async Task<ResponsibleResponseTO> AddAsync(ResponsibleRequestTO responsibleRequestTO)
         {
-            throw new NotImplementedException();
+             return await _responsibleService.AddAsync(responsibleRequestTO);
         }
 
-        public Task UpdateAsync(Guid? gameId, ResponsibleRequestTO responsibleRequestTO)
+        public async Task UpdateAsync(Guid? responsibleId, ResponsibleRequestTO responsibleRequestTO)
         {
-            throw new NotImplementedException();
+            await _responsibleService.UpdateAsync(responsibleId, responsibleRequestTO);
         }
 
-        public Task DeleteAsync(Guid? gameId)
+        public async Task DeleteAsync(Guid? responsibleId)
         {
-            throw new NotImplementedException();
+            await _responsibleService.DeleteAsync(responsibleId);
         }
 
-        public Task<IList<ResponsibleResponseTO>> ListAsync(ResponsibleFilterTO filterTO)
+        public async Task<IList<ResponsibleResponseTO>> ListAsync(ResponsibleFilterTO filterTO)
         {
-            throw new NotImplementedException();
+            return await _responsibleService.ListAsync(filterTO);
         }
     }
 }

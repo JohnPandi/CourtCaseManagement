@@ -33,8 +33,9 @@ namespace CourtCaseManagement.Infrastructure.Data.Config
                 .HasColumnName("process_id");
 
             builder
-                .HasOne(p => p.Process)
-                .WithMany(s => s.Responsibles);
+                .HasOne(responsible => responsible.Process)
+                .WithMany(process => process.Responsibles)
+                .HasForeignKey(responsible => responsible.ProcessId);
         }
     }
 }
