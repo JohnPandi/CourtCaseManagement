@@ -29,5 +29,8 @@ namespace CourtCaseManagement.ApplicationCore.TOs
 
         [JsonProperty("responsibles")]
         public IList<Guid?> Responsibles { get; set; }
+
+        [JsonProperty("updateUserName")]
+        public string UpdateUserName { get; set; }
     }
 }

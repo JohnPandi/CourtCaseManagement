@@ -15,7 +15,10 @@ namespace CourtCaseManagement.ApplicationCore.Entities
         public virtual string ClientPhysicalFolder { get; set; }
         public virtual string UnifiedProcessNumber { get; set; }
         public virtual Guid? SituationId { get; set; }
+        public virtual Guid? LinkedProcessId { get; set; }
+        public virtual ProcessEntity ProcessFather { get; set; }
+        public virtual HashSet<ProcessEntity> Children { get; set; }
         public virtual SituationEntity Situation { get; set; }
-        public virtual IList<ResponsibleEntity> Responsibles { get; set; }
+        public virtual IList<ProcessResponsibleEntity> ProcessResponsible { get; set; }
     }
 }

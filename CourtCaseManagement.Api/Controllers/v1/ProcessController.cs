@@ -34,15 +34,15 @@ namespace CourtCaseManagement.Api.Controllers
         ///**Modelo de Dados** *(corpo da requisição, body)*
         ///|Parâmetro|||Obrigatório|Tipo|Tamanho|Descrição|
         ///|---|---|---|:---:|:---:|---|---|
-        ///|**unifiedProcessNumber**|||✔️|string|400|<span>Número do processo unificado</span>|
-        ///|**distributionDate**|||✔️|date||<span>Data de distribuição.</span><br/><span>Formato: yyyy-MM-dd.</span>|
+        ///|**unifiedProcessNumber**|||✔️|string|20|<span>Número do processo unificado</span>|
+        ///|**distributionDate**|||❌|date||<span>Data de distribuição.</span><br/><span>Formato: yyyy-MM-dd.</span>|
         ///|**justiceSecret**|||✔️|boolean||<span>Processo segredo de justiça</span>|
-        ///|**clientPhysicalFolder**|||✔️|string|400|<span>Pasta física cliente.</span>|
-        ///|**description**|||✔️|string|400|<span>Descrição.</span>|
+        ///|**clientPhysicalFolder**|||❌|string|50|<span>Pasta física cliente.</span>|
+        ///|**description**|||❌|string|1000|<span>Descrição.</span>|
         ///|**situationId**|||✔️|guid||<span>Identificador da situação do processo.</span>|
         ///|**responsibles**|||✔️|||<span>Responsáveis.</span>|
         ///||**id**||✔️|guid||<span>Identificador do responsável.</span>|
-        ///|**linkedProcessId**|||✔️|guid||<span>Processo vinculado (processo pai).</span>|
+        ///|**linkedProcessId**|||❌|guid||<span>Processo vinculado (processo pai).</span>|
         /// </remarks>
         /// <returns>ProcessResponseTO</returns>
         [HttpPost]

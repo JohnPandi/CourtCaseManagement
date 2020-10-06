@@ -15,24 +15,24 @@ namespace CourtCaseManagement.ApplicationCore.Facades
             _processService = processService;
         }
 
-        public Task<ProcessResponseTO> AddAsync(ProcessRequestTO gameTO)
+        public async Task<ProcessResponseTO> AddAsync(ProcessRequestTO processRequestTO)
         {
-            throw new NotImplementedException();
+            return await _processService.AddAsync(processRequestTO);
         }
 
-        public Task UpdateAsync(Guid? gameId, ProcessRequestTO name)
+        public async Task UpdateAsync(Guid? processId, ProcessRequestTO processRequestTO)
         {
-            throw new NotImplementedException();
+            await _processService.UpdateAsync(processId, processRequestTO);
         }
 
-        public Task DeleteAsync(Guid? gameId)
+        public async Task DeleteAsync(Guid? processId)
         {
-            throw new NotImplementedException();
+            await _processService.DeleteAsync(processId);
         }
 
-        public Task<IList<ProcessResponseTO>> ListAsync(ProcessFilterTO filterTO)
+        public async Task<IList<ProcessResponseTO>> ListAsync(ProcessFilterTO filterTO)
         {
-            throw new NotImplementedException();
+            return await _processService.ListAsync(filterTO);
         }
     }
 }

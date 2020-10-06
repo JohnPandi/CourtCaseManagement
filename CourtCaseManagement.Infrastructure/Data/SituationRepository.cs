@@ -3,9 +3,9 @@ using CourtCaseManagement.ApplicationCore.Interfaces;
 
 namespace CourtCaseManagement.Infrastructure.Data
 {
-    public class ResponsibleRepository : EfRepository<ResponsibleEntity>, IResponsibleRepository
+    public class SituationRepository : EfRepository<SituationEntity>, ISituationRepository
     {
-        public ResponsibleRepository(CatalogContext dbContext) : base(dbContext)
+        public SituationRepository(CatalogContext dbContext) : base(dbContext)
         {
 
         }

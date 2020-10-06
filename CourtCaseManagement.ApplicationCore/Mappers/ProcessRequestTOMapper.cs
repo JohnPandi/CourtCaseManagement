@@ -1,8 +1,8 @@
 ﻿using CourtCaseManagement.ApplicationCore.Entities;
 using CourtCaseManagement.ApplicationCore.TOs;
+using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace CourtCaseManagement.ApplicationCore.Mappers
 {
@@ -18,46 +18,38 @@ namespace CourtCaseManagement.ApplicationCore.Mappers
             return new ProcessEntity()
             {
                 Description = processRequestTO.Description,
+                SituationId = processRequestTO.SituationId,
                 JusticeSecret = processRequestTO.JusticeSecret,
+                UpdateUserName = processRequestTO.UpdateUserName,
+                LinkedProcessId = processRequestTO.LinkedProcessId,
                 DistributionDate = processRequestTO.DistributionDate,
                 ClientPhysicalFolder = processRequestTO.ClientPhysicalFolder,
                 UnifiedProcessNumber = processRequestTO.UnifiedProcessNumber,
-                Situation = ToSituationEntity(processRequestTO.SituationId),
-                Responsibles = ToListResponsibleEntity(processRequestTO.Responsibles)
+                ProcessResponsible = ToProcessResponsibleEntity(processRequestTO.Responsibles)
             };
         }
 
-        public static SituationEntity ToSituationEntity(Guid? situationId)
+        public static IList<ProcessResponsibleEntity> ToProcessResponsibleEntity(IList<Guid?> listResponsableId)
         {
-            if(situationId == null)
+            if (listResponsableId == null)
             {
                 return null;
             }
 
-            return new SituationEntity
-            {
-                Id = situationId.Value
-            };
-        }
+            var processResponsible = new List<ProcessResponsibleEntity>();
 
-        public static IList<ResponsibleEntity> ToListResponsibleEntity(IList<Guid?> responsibles)
-        {
-            if (responsibles == null || !responsibles.Any())
-            {
-                return null;
-            }
-
-            var list = new List<ResponsibleEntity>();
-
-            responsibles.ToList().ForEach(responsibleId => 
+            foreach (var responsibleId in listResponsableId)
             {
                 if (responsibleId != null)
                 {
-                    list.Add(new ResponsibleEntity { Id = responsibleId.Value });
+                    processResponsible.Add(new ProcessResponsibleEntity
+                    {
+                        ResponsibleId = responsibleId
+                    });
                 }
-            });
+            }
 
-            return list.Any() ? list : null;
+            return processResponsible.Any() ? processResponsible : null;
         }
     }
 }

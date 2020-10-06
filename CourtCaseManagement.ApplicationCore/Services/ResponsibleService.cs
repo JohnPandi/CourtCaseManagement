@@ -28,7 +28,7 @@ namespace CourtCaseManagement.ApplicationCore.Services
 
         public async Task UpdateAsync(Guid? responsibleId, ResponsibleRequestTO responsibleRequestTO)
         {
-            var responsibleEntity = await _responsibleRepository.GetByIdWithIncludesAsync(responsibleId.Value);
+            var responsibleEntity = await _responsibleRepository.GetByIdAsync(responsibleId.Value);
 
             responsibleEntity.Cpf = responsibleRequestTO.Cpf;
             responsibleEntity.Name = responsibleRequestTO.Name;
@@ -47,7 +47,7 @@ namespace CourtCaseManagement.ApplicationCore.Services
         {
             var responsibleSpecification = new BaseSpecification<ResponsibleEntity>();
 
-            responsibleSpecification.AddCriteria(filterTO.UnifiedProcessNumber, responsible => responsible.Process != null && !string.IsNullOrEmpty(responsible.Process.UnifiedProcessNumber) && responsible.Process.UnifiedProcessNumber.Replace("-", string.Empty).Replace(".", string.Empty).Contains(filterTO.UnifiedProcessNumber.Replace("-", string.Empty).Replace(".", string.Empty)));
+            responsibleSpecification.AddCriteria(filterTO.UnifiedProcessNumber, responsible => responsible.ProcessResponsible.Any(processResponsible => processResponsible.Process != null && !string.IsNullOrEmpty(processResponsible.Process.UnifiedProcessNumber) && processResponsible.Process.UnifiedProcessNumber.Replace("-", string.Empty).Replace(".", string.Empty).Contains(filterTO.UnifiedProcessNumber.Replace("-", string.Empty).Replace(".", string.Empty))));
             responsibleSpecification.AddCriteria(filterTO.Cpf, responsible => responsible.Cpf == Convert.ToInt64(filterTO.Cpf.Replace(".", string.Empty).Replace("-", string.Empty)));
             responsibleSpecification.AddCriteria(filterTO.Name, responsible => responsible.Name.Trim().ToUpper().Contains(filterTO.Name.Trim().ToUpper()));
 

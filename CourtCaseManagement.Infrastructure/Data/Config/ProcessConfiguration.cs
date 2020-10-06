@@ -44,11 +44,18 @@ namespace CourtCaseManagement.Infrastructure.Data.Config
             builder.Property(x => x.SituationId)
                 .HasColumnName("situation_id");
 
-            builder.HasMany(r => r.Responsibles)
-                .WithOne(p => p.Process);
+            builder.Property(x => x.LinkedProcessId)
+                .HasColumnName("process_id");
 
-            builder.HasOne(s => s.Situation)
-                .WithMany(p => p.Processes);
+            builder.HasOne(process => process.ProcessFather)
+                .WithMany(process => process.Children)
+                .HasForeignKey(process => process.LinkedProcessId);
+
+            builder.HasMany(process => process.ProcessResponsible)
+                .WithOne(processResponsible => processResponsible.Process);
+
+            builder.HasOne(process => process.Situation)
+                .WithMany(situation => situation.Processes);
         }
     }
 }

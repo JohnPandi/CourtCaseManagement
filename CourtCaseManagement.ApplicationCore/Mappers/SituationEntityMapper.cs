@@ -7,7 +7,7 @@ namespace CourtCaseManagement.ApplicationCore.Mappers
 {
     public static class SituationEntityMapper
     {
-        public static SituationResponseTO ToSituationEntity(this SituationEntity situationEntity)
+        public static SituationResponseTO ToSituationResponseTO(this SituationEntity situationEntity)
         {
             if (situationEntity == null)
             {
@@ -22,7 +22,7 @@ namespace CourtCaseManagement.ApplicationCore.Mappers
             };
         }
 
-        public static IList<SituationResponseTO> ToListSituationEntity(this IList<SituationEntity> listEntity)
+        public static IList<SituationResponseTO> ToListSituationResponseTO(this IList<SituationEntity> listEntity)
         {
             if (listEntity == null)
             {                 
@@ -35,7 +35,7 @@ namespace CourtCaseManagement.ApplicationCore.Mappers
             {
                 if (entity != null)
                 {
-                    list.Add(entity.ToSituationEntity());
+                    list.Add(entity.ToSituationResponseTO());
                 }
             });
 

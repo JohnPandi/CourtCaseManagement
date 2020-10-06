@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace CourtCaseManagement.ApplicationCore.TOs
 {
@@ -15,6 +14,6 @@ namespace CourtCaseManagement.ApplicationCore.TOs
         public string ClientPhysicalFolder { get; set; }
         public string UnifiedProcessNumber { get; set; }
         public SituationResponseTO Situation { get; set; }
-        public IList<ResponsibleResponseTO> Responsibles { get; set; }
+        public ResponsibleResponseTO Responsible { get; set; }
     }
 }

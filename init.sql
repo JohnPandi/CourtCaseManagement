@@ -1,8 +1,9 @@
 CREATE SCHEMA IF NOT EXISTS public;
 
+DROP TABLE IF EXISTS public.process_responsible CASCADE;
 DROP TABLE IF EXISTS public.responsible CASCADE;
-DROP TABLE IF EXISTS public.process CASCADE;
 DROP TABLE IF EXISTS public.situation CASCADE;
+DROP TABLE IF EXISTS public.process CASCADE;
 
 CREATE TABLE IF NOT EXISTS public.situation
 (
@@ -12,22 +13,6 @@ CREATE TABLE IF NOT EXISTS public.situation
     CONSTRAINT situation_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS public.process
-(
-    id uuid NOT NULL,
-	situation_id uuid NULL,
-	version int NULL,
-	update_date Date NULL,
-	update_user_name character varying(400) NULL,
-	description character varying(400) NULL,
-	justice_secret boolean NULL,
-	distribution_date Date NULL,
-	client_physical_folder character varying(400) NULL,
-	unified_process_number character varying(400) NULL,
-    CONSTRAINT process_pkey PRIMARY KEY (id),
-	CONSTRAINT situation_id_fkey FOREIGN KEY (situation_id) REFERENCES public.situation (id)
-);
-
 CREATE TABLE IF NOT EXISTS public.responsible
 (
     id uuid NOT NULL,
@@ -35,9 +20,35 @@ CREATE TABLE IF NOT EXISTS public.responsible
 	name character varying(400) NULL,
 	mail character varying(400) NULL,
 	photograph character varying(400) NULL,
+    CONSTRAINT responsible_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS public.process
+(
+    id uuid NOT NULL,
 	process_id uuid NULL,
-    CONSTRAINT responsible_pkey PRIMARY KEY (id),
-	CONSTRAINT process_id_fkey FOREIGN KEY (process_id) REFERENCES public.process (id)
+	situation_id uuid NULL,
+	version int NULL,
+	update_date Date NULL,
+	update_user_name character varying(400) NULL,
+	description character varying(1000) NULL,
+	justice_secret boolean NULL,
+	distribution_date Date NULL,
+	client_physical_folder character varying(400) NULL,
+	unified_process_number character varying(400) NULL,
+    CONSTRAINT process_pkey PRIMARY KEY (id),
+	CONSTRAINT process_id_fkey FOREIGN KEY (process_id) REFERENCES public.process (id),
+	CONSTRAINT situation_id_fkey FOREIGN KEY (situation_id) REFERENCES public.situation (id)
+);
+
+CREATE TABLE IF NOT EXISTS public.process_responsible
+(
+    id uuid NOT NULL,
+	process_id uuid NULL,
+	responsible_id uuid NULL,
+    CONSTRAINT process_responsible_pkey PRIMARY KEY (id),
+	CONSTRAINT process_id_fkey FOREIGN KEY (process_id) REFERENCES public.process (id),
+	CONSTRAINT responsible_id_fkey FOREIGN KEY (responsible_id) REFERENCES public.responsible (id)
 );
 
 Insert into public.situation (id, name, finished) values ('62a6ff9d-5f0d-407d-8e88-2bdfe66fa003', 'Em andamento', false);

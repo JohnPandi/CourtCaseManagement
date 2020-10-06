@@ -33,6 +33,13 @@ namespace CourtCaseManagement.ApplicationCore.Specification
                 Criterias.Add(expression);
             }
         }
+        public virtual void AddCriteria(bool? property, Expression<Func<T, bool>> expression)
+        {
+            if (property != null)
+            {
+                Criterias.Add(expression);
+            }
+        }
         public virtual void AddCriteria(Guid? property, Expression<Func<T, bool>> expression)
         {
             if (property != null)

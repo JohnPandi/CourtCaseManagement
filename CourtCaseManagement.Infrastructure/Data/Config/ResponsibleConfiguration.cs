@@ -29,13 +29,8 @@ namespace CourtCaseManagement.Infrastructure.Data.Config
             builder.Property(x => x.Photograph)
                 .HasColumnName("photograph");
 
-            builder.Property(x => x.ProcessId)
-                .HasColumnName("process_id");
-
-            builder
-                .HasOne(responsible => responsible.Process)
-                .WithMany(process => process.Responsibles)
-                .HasForeignKey(responsible => responsible.ProcessId);
+            builder.HasMany(responsible => responsible.ProcessResponsible)
+                .WithOne(processResponsible => processResponsible.Responsible);
         }
     }
 }

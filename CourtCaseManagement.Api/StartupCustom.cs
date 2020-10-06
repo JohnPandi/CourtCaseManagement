@@ -37,6 +37,7 @@ namespace CourtCaseManagement.Api
 
             services.AddScoped<IProcessRepository, ProcessRepository>();
             services.AddScoped<IResponsibleRepository, ResponsibleRepository>();
+            services.AddScoped<ISituationRepository, SituationRepository>();
         }
 
         public virtual void AddInfrastructureClassDependencyInject(IServiceCollection services)

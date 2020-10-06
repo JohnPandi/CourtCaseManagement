@@ -1,5 +1,7 @@
 ﻿using CourtCaseManagement.ApplicationCore.Entities;
 using CourtCaseManagement.ApplicationCore.TOs;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CourtCaseManagement.ApplicationCore.Mappers
 {
@@ -25,9 +27,29 @@ namespace CourtCaseManagement.ApplicationCore.Mappers
                 DistributionDate = processEntity.DistributionDate,
                 ClientPhysicalFolder = processEntity.ClientPhysicalFolder,
                 UnifiedProcessNumber = processEntity.UnifiedProcessNumber,
-                Situation = processEntity.Situation.ToSituationEntity(),
-                Responsibles = processEntity.Responsibles.ToListResponsibleResponseTO()
+                Situation = processEntity.Situation.ToSituationResponseTO(),
+                //Responsible = processEntity.Responsible.ToResponsibleResponseTO()
             };
-        } 
+        }
+
+        public static IList<ProcessResponseTO> ToListProcessResponseTO(this IList<ProcessEntity> listEntity)
+        {
+            if (listEntity == null)
+            {
+                return null;
+            }
+
+            var list = new List<ProcessResponseTO>();
+
+            listEntity.ToList().ForEach(entity =>
+            {
+                if (entity != null)
+                {
+                    list.Add(entity.ToProcessResponseTO());
+                }
+            });
+
+            return list;
+        }
     }
 }

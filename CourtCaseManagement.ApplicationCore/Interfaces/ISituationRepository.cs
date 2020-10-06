@@ -2,8 +2,7 @@
 
 namespace CourtCaseManagement.ApplicationCore.Interfaces
 {
-    public interface IResponsibleRepository : IAsyncRepository<ResponsibleEntity>
+    public interface ISituationRepository : IAsyncRepository<SituationEntity>
     {
-
     }
 }
