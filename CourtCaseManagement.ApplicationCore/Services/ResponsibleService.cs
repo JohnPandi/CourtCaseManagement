@@ -1,6 +1,9 @@
 ﻿using CourtCaseManagement.ApplicationCore.Entities;
+using CourtCaseManagement.ApplicationCore.Exceptions;
+using CourtCaseManagement.ApplicationCore.Helpers;
 using CourtCaseManagement.ApplicationCore.Interfaces;
 using CourtCaseManagement.ApplicationCore.Mappers;
+using CourtCaseManagement.ApplicationCore.Messages;
 using CourtCaseManagement.ApplicationCore.Specification;
 using CourtCaseManagement.ApplicationCore.TOs;
 using System;
@@ -17,6 +20,106 @@ namespace CourtCaseManagement.ApplicationCore.Services
         public ResponsibleService(IResponsibleRepository responsibleRepository)
         {
             _responsibleRepository = responsibleRepository;
+        }
+
+        public void ValidateAsync(ResponsibleRequestTO responsibleRequestTO)
+        {
+            var errors = new List<ErrorsTO>();
+
+            errors.AddRange(RequiredFields(responsibleRequestTO));
+
+            if (errors.Count == 0)
+                errors.AddRange(MaximumSizeFields(responsibleRequestTO));
+
+            if (errors.Count == 0)
+                errors.AddRange(ValidateCpfAsync(responsibleRequestTO));
+
+            if (errors.Count > 0)
+                throw new ErrorsException(errors);
+        }
+
+        private List<ErrorsTO> ValidateCpfAsync(ResponsibleRequestTO responsibleRequestTO)
+        {
+            var errors = new List<ErrorsTO>();
+
+            if (!ValidateCPF.IsCpf(responsibleRequestTO.Cpf.ToString().PadLeft(11, '0')))
+            {
+                errors.Add(new ErrorsTO
+                {
+                    Field = "CPF",
+                    Validation = Messaging.InvalidCPF
+                });
+            }
+
+            return errors;
+        }
+
+        private List<ErrorsTO> RequiredFields(ResponsibleRequestTO responsibleRequestTO)
+        {
+            var errors = new List<ErrorsTO>();
+
+            if (string.IsNullOrEmpty(responsibleRequestTO.Name))
+            {
+                errors.Add(new ErrorsTO
+                {
+                    Field = "Name",
+                    Validation = Messaging.RequiredName
+                });
+            }
+
+            if (string.IsNullOrEmpty(responsibleRequestTO.Mail))
+            {
+                errors.Add(new ErrorsTO
+                {
+                    Field = "Mail",
+                    Validation = Messaging.RequiredMail
+                });
+            }
+
+            if (responsibleRequestTO.Cpf == null)
+            {
+                errors.Add(new ErrorsTO
+                {
+                    Field = "Cpf",
+                    Validation = Messaging.RequiredCpf
+                });
+            }
+
+            if (string.IsNullOrEmpty(responsibleRequestTO.Photograph))
+            {
+                errors.Add(new ErrorsTO
+                {
+                    Field = "Photograph",
+                    Validation = Messaging.RequiredPhotograph
+                });
+            }
+
+            return errors;
+        }
+
+        private List<ErrorsTO> MaximumSizeFields(ResponsibleRequestTO responsibleRequestTO)
+        {
+            var errors = new List<ErrorsTO>();
+
+            if (!string.IsNullOrEmpty(responsibleRequestTO.Name) && responsibleRequestTO.Name.Trim().Length > 150)
+            {
+                errors.Add(new ErrorsTO
+                {
+                    Field = "Name",
+                    Validation = Messaging.MaximumSizeName
+                });
+            }
+
+            if (!string.IsNullOrEmpty(responsibleRequestTO.Mail) && responsibleRequestTO.Mail.Trim().Length > 400)
+            {
+                errors.Add(new ErrorsTO
+                {
+                    Field = "Mail",
+                    Validation = Messaging.MaximumSizeMail
+                });
+            }
+
+            return errors;
         }
 
         public async Task<ResponsibleResponseTO> AddAsync(ResponsibleRequestTO responsibleRequestTO)
@@ -39,8 +142,36 @@ namespace CourtCaseManagement.ApplicationCore.Services
 
         public async Task DeleteAsync(Guid? responsibleId)
         {
+            if (responsibleId == null)
+            {
+                return;
+            }
+
             var responsibleEntity = await _responsibleRepository.GetByIdAsync(responsibleId.Value);
+
+            if (responsibleEntity == null)
+            {
+                throw new NotFoundException("ResponsibleId", Messaging.NotFoundResponsible);
+            }
+
             await _responsibleRepository.DeleteAsync(responsibleEntity);
+        }
+
+        public void ValidateListAsync(ResponsibleFilterTO filterTO)
+        {
+            var errors = new List<ErrorsTO>();
+
+            if (filterTO.PerPage > 50)
+            {
+                errors.Add(new ErrorsTO
+                {
+                    Field = "PerPage",
+                    Validation = Messaging.ExceededMaximumValue
+                });
+            }
+
+            if (errors.Count > 0)
+                throw new ErrorsException(errors);
         }
 
         public async Task<IList<ResponsibleResponseTO>> ListAsync(ResponsibleFilterTO filterTO)

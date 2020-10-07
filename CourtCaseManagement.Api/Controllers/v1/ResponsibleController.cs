@@ -1,4 +1,6 @@
-﻿using CourtCaseManagement.ApplicationCore.Interfaces;
+﻿using CourtCaseManagement.ApplicationCore.Exceptions;
+using CourtCaseManagement.ApplicationCore.Helpers;
+using CourtCaseManagement.ApplicationCore.Interfaces;
 using CourtCaseManagement.ApplicationCore.TOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -43,7 +45,9 @@ namespace CourtCaseManagement.Api.Controllers
         [HttpPost]
         [MapToApiVersion("1")]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ResponsibleResponseTO))]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(Exception))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ErrorMessageTO))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorsResponseTO))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ErrorTraceTO))]
         public async Task<IActionResult> AddAsync([FromBody][Required] ResponsibleRequestTO responsibleRequestTO)
         {
             ResponsibleResponseTO responseTO = null;
@@ -52,10 +56,14 @@ namespace CourtCaseManagement.Api.Controllers
             {
                 responseTO = await _responsibleFacade.AddAsync(responsibleRequestTO);
             }
+            catch (ErrorsException ex)
+            {
+                return BadRequest(ex.ErrorResponse);
+            }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "AddAsync", new object[] { responsibleRequestTO });
-                return StatusCode((int)HttpStatusCode.InternalServerError, ex);
+                return StatusCode((int)HttpStatusCode.InternalServerError, ErrorHelper.GenericError(ex));
             }
 
             return Created(nameof(AddAsync), responseTO);
@@ -78,7 +86,9 @@ namespace CourtCaseManagement.Api.Controllers
         [HttpGet]
         [MapToApiVersion("1")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IList<ResponsibleResponseTO>))]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(Exception))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ErrorMessageTO))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorsResponseTO))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ErrorTraceTO))]
         public async Task<IActionResult> ListAsync([FromQuery] ResponsibleFilterTO filterTO)
         {
             IList<ResponsibleResponseTO> listResponseTO = null;
@@ -87,10 +97,14 @@ namespace CourtCaseManagement.Api.Controllers
             {
                 listResponseTO = await _responsibleFacade.ListAsync(filterTO);
             }
+            catch (ErrorsException ex)
+            {
+                return BadRequest(ex.ErrorResponse);
+            }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "AddAsync", new object[] { filterTO });
-                return StatusCode((int)HttpStatusCode.InternalServerError, ex);
+                return StatusCode((int)HttpStatusCode.InternalServerError, ErrorHelper.GenericError(ex));
             }
 
             return Ok(listResponseTO);
@@ -113,17 +127,23 @@ namespace CourtCaseManagement.Api.Controllers
         [HttpPut("{id}")]
         [MapToApiVersion("1")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(Exception))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ErrorMessageTO))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorsResponseTO))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ErrorTraceTO))]
         public async Task<IActionResult> UpdateAsync([FromRoute(Name = "id")][Required] Guid? id, [FromBody][Required] ResponsibleRequestTO responsibleRequestTO)
         {
             try
             {
                 await _responsibleFacade.UpdateAsync(id, responsibleRequestTO);
             }
+            catch (ErrorsException ex)
+            {
+                return BadRequest(ex.ErrorResponse);
+            }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "UpdateAsync", new object[] { id, responsibleRequestTO });
-                return StatusCode((int)HttpStatusCode.InternalServerError, ex);
+                return StatusCode((int)HttpStatusCode.InternalServerError, ErrorHelper.GenericError(ex));
             }
 
             return Ok();
@@ -137,17 +157,27 @@ namespace CourtCaseManagement.Api.Controllers
         [HttpDelete("{id}")]
         [MapToApiVersion("1")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(Exception))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ErrorMessageTO))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorsResponseTO))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ErrorTraceTO))]
         public async Task<IActionResult> DeleteAsync([FromRoute(Name = "id")][Required] Guid? id)
         {
             try
             {
                 await _responsibleFacade.DeleteAsync(id);
             }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.ErrorResponse);
+            }
+            catch (ErrorsException ex)
+            {
+                return BadRequest(ex.ErrorResponse);
+            }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "DeleteAsync", new object[] { id });
-                return StatusCode((int)HttpStatusCode.InternalServerError, ex);
+                return StatusCode((int)HttpStatusCode.InternalServerError, ErrorHelper.GenericError(ex));
             }
 
             return Ok();

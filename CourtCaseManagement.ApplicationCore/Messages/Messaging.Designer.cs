@@ -61,6 +61,168 @@ namespace CourtCaseManagement.ApplicationCore.Messages {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a DistributionDateGreaterThanTheCurrentDate.
+        /// </summary>
+        public static string DistributionDateGreaterThanTheCurrentDate {
+            get {
+                return ResourceManager.GetString("DistributionDateGreaterThanTheCurrentDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a DoubleUnifiedProcessNumber.
+        /// </summary>
+        public static string DoubleUnifiedProcessNumber {
+            get {
+                return ResourceManager.GetString("DoubleUnifiedProcessNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a DuplicateResponsible.
+        /// </summary>
+        public static string DuplicateResponsible {
+            get {
+                return ResourceManager.GetString("DuplicateResponsible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a ExceededLimitOfHierarchyLinkedProcessId.
+        /// </summary>
+        public static string ExceededLimitOfHierarchyLinkedProcessId {
+            get {
+                return ResourceManager.GetString("ExceededLimitOfHierarchyLinkedProcessId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a ExceededLimitOfHierarchyResponsible.
+        /// </summary>
+        public static string ExceededLimitOfHierarchyResponsible {
+            get {
+                return ResourceManager.GetString("ExceededLimitOfHierarchyResponsible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a ExceededLimitOfResponsible.
+        /// </summary>
+        public static string ExceededLimitOfResponsible {
+            get {
+                return ResourceManager.GetString("ExceededLimitOfResponsible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a ExceededMaximumValue.
+        /// </summary>
+        public static string ExceededMaximumValue {
+            get {
+                return ResourceManager.GetString("ExceededMaximumValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a FixedSizeUnifiedProcessNumber.
+        /// </summary>
+        public static string FixedSizeUnifiedProcessNumber {
+            get {
+                return ResourceManager.GetString("FixedSizeUnifiedProcessNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a InvalidCPF.
+        /// </summary>
+        public static string InvalidCPF {
+            get {
+                return ResourceManager.GetString("InvalidCPF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a InvalidProcessId.
+        /// </summary>
+        public static string InvalidProcessId {
+            get {
+                return ResourceManager.GetString("InvalidProcessId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a InvalidResponsible.
+        /// </summary>
+        public static string InvalidResponsible {
+            get {
+                return ResourceManager.GetString("InvalidResponsible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a InvalidSituationId.
+        /// </summary>
+        public static string InvalidSituationId {
+            get {
+                return ResourceManager.GetString("InvalidSituationId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a MaximumSizeClientPhysicalFolder.
+        /// </summary>
+        public static string MaximumSizeClientPhysicalFolder {
+            get {
+                return ResourceManager.GetString("MaximumSizeClientPhysicalFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a MaximumSizeDescription.
+        /// </summary>
+        public static string MaximumSizeDescription {
+            get {
+                return ResourceManager.GetString("MaximumSizeDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a MaximumSizeMail.
+        /// </summary>
+        public static string MaximumSizeMail {
+            get {
+                return ResourceManager.GetString("MaximumSizeMail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a MaximumSizeName.
+        /// </summary>
+        public static string MaximumSizeName {
+            get {
+                return ResourceManager.GetString("MaximumSizeName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a NotFoundProcess.
+        /// </summary>
+        public static string NotFoundProcess {
+            get {
+                return ResourceManager.GetString("NotFoundProcess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a NotFoundResponsible.
+        /// </summary>
+        public static string NotFoundResponsible {
+            get {
+                return ResourceManager.GetString("NotFoundResponsible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a NotNull.
         /// </summary>
         public static string NotNull {
@@ -70,11 +232,101 @@ namespace CourtCaseManagement.ApplicationCore.Messages {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a RegistrationCannotBeEdited.
+        /// </summary>
+        public static string RegistrationCannotBeEdited {
+            get {
+                return ResourceManager.GetString("RegistrationCannotBeEdited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a RequiredCpf.
+        /// </summary>
+        public static string RequiredCpf {
+            get {
+                return ResourceManager.GetString("RequiredCpf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a RequiredJusticeSecret.
+        /// </summary>
+        public static string RequiredJusticeSecret {
+            get {
+                return ResourceManager.GetString("RequiredJusticeSecret", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a RequiredMail.
+        /// </summary>
+        public static string RequiredMail {
+            get {
+                return ResourceManager.GetString("RequiredMail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a RequiredName.
+        /// </summary>
+        public static string RequiredName {
+            get {
+                return ResourceManager.GetString("RequiredName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a RequiredPage.
         /// </summary>
         public static string RequiredPage {
             get {
                 return ResourceManager.GetString("RequiredPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a RequiredPhotograph.
+        /// </summary>
+        public static string RequiredPhotograph {
+            get {
+                return ResourceManager.GetString("RequiredPhotograph", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a RequiredProcessId.
+        /// </summary>
+        public static string RequiredProcessId {
+            get {
+                return ResourceManager.GetString("RequiredProcessId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a RequiredResponsibles.
+        /// </summary>
+        public static string RequiredResponsibles {
+            get {
+                return ResourceManager.GetString("RequiredResponsibles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a RequiredSituationId.
+        /// </summary>
+        public static string RequiredSituationId {
+            get {
+                return ResourceManager.GetString("RequiredSituationId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a RequiredUnifiedProcessNumber.
+        /// </summary>
+        public static string RequiredUnifiedProcessNumber {
+            get {
+                return ResourceManager.GetString("RequiredUnifiedProcessNumber", resourceCulture);
             }
         }
         

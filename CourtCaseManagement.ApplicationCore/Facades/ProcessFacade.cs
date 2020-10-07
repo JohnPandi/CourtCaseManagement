@@ -17,11 +17,13 @@ namespace CourtCaseManagement.ApplicationCore.Facades
 
         public async Task<ProcessResponseTO> AddAsync(ProcessRequestTO processRequestTO)
         {
+            await _processService.ValidateAddAsync(processRequestTO);
             return await _processService.AddAsync(processRequestTO);
         }
 
         public async Task UpdateAsync(Guid? processId, ProcessRequestTO processRequestTO)
         {
+            await _processService.ValidateUpdateAsync(processId, processRequestTO);
             await _processService.UpdateAsync(processId, processRequestTO);
         }
 
@@ -32,6 +34,7 @@ namespace CourtCaseManagement.ApplicationCore.Facades
 
         public async Task<IList<ProcessResponseTO>> ListAsync(ProcessFilterTO filterTO)
         {
+            _processService.ValidateListAsync(filterTO);
             return await _processService.ListAsync(filterTO);
         }
     }

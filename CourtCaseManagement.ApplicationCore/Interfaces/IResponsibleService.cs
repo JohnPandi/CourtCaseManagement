@@ -11,5 +11,7 @@ namespace CourtCaseManagement.ApplicationCore.Interfaces
         Task UpdateAsync(Guid? responsibleId, ResponsibleRequestTO responsibleRequestTO);
         Task DeleteAsync(Guid? responsibleId);
         Task<IList<ResponsibleResponseTO>> ListAsync(ResponsibleFilterTO filterTO);
+        void ValidateListAsync(ResponsibleFilterTO filterTO);
+        void ValidateAsync(ResponsibleRequestTO responsibleRequestTO);
     }
 }

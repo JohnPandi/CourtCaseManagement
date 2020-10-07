@@ -17,11 +17,13 @@ namespace CourtCaseManagement.ApplicationCore.Facades
 
         public async Task<ResponsibleResponseTO> AddAsync(ResponsibleRequestTO responsibleRequestTO)
         {
-             return await _responsibleService.AddAsync(responsibleRequestTO);
+             _responsibleService.ValidateAsync(responsibleRequestTO);
+            return await _responsibleService.AddAsync(responsibleRequestTO);
         }
 
         public async Task UpdateAsync(Guid? responsibleId, ResponsibleRequestTO responsibleRequestTO)
         {
+            _responsibleService.ValidateAsync(responsibleRequestTO);
             await _responsibleService.UpdateAsync(responsibleId, responsibleRequestTO);
         }
 
@@ -32,6 +34,7 @@ namespace CourtCaseManagement.ApplicationCore.Facades
 
         public async Task<IList<ResponsibleResponseTO>> ListAsync(ResponsibleFilterTO filterTO)
         {
+            _responsibleService.ValidateListAsync(filterTO);
             return await _responsibleService.ListAsync(filterTO);
         }
     }

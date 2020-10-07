@@ -117,13 +117,99 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DistributionDateGreaterThanTheCurrentDate" xml:space="preserve">
+    <value>DistributionDateGreaterThanTheCurrentDate</value>
+  </data>
+  <data name="DoubleUnifiedProcessNumber" xml:space="preserve">
+    <value>DoubleUnifiedProcessNumber</value>
+  </data>
+  <data name="DuplicateResponsible" xml:space="preserve">
+    <value>DuplicateResponsible</value>
+  </data>
+  <data name="ExceededLimitOfHierarchyLinkedProcessId" xml:space="preserve">
+    <value>ExceededLimitOfHierarchyLinkedProcessId</value>
+  </data>
+  <data name="ExceededLimitOfHierarchyResponsible" xml:space="preserve">
+    <value>ExceededLimitOfHierarchyResponsible</value>
+  </data>
+  <data name="ExceededLimitOfResponsible" xml:space="preserve">
+    <value>ExceededLimitOfResponsible</value>
+  </data>
+  <data name="ExceededMaximumValue" xml:space="preserve">
+    <value>ExceededMaximumValue</value>
+  </data>
+  <data name="FixedSizeUnifiedProcessNumber" xml:space="preserve">
+    <value>FixedSizeUnifiedProcessNumber</value>
+  </data>
+  <data name="InvalidCPF" xml:space="preserve">
+    <value>InvalidCPF</value>
+  </data>
+  <data name="InvalidProcessId" xml:space="preserve">
+    <value>InvalidProcessId</value>
+  </data>
+  <data name="InvalidResponsible" xml:space="preserve">
+    <value>InvalidResponsible</value>
+  </data>
+  <data name="InvalidSituationId" xml:space="preserve">
+    <value>InvalidSituationId</value>
+  </data>
+  <data name="MaximumSizeClientPhysicalFolder" xml:space="preserve">
+    <value>MaximumSizeClientPhysicalFolder</value>
+  </data>
+  <data name="MaximumSizeDescription" xml:space="preserve">
+    <value>MaximumSizeDescription</value>
+  </data>
+  <data name="MaximumSizeMail" xml:space="preserve">
+    <value>MaximumSizeMail</value>
+  </data>
+  <data name="MaximumSizeName" xml:space="preserve">
+    <value>MaximumSizeName</value>
+  </data>
+  <data name="NotFoundProcess" xml:space="preserve">
+    <value>NotFoundProcess</value>
+    <comment>Process not found.</comment>
+  </data>
+  <data name="NotFoundResponsible" xml:space="preserve">
+    <value>NotFoundResponsible</value>
+    <comment>Responsible not found.</comment>
+  </data>
   <data name="NotNull" xml:space="preserve">
     <value>NotNull</value>
     <comment>The field value could not be null.</comment>
   </data>
+  <data name="RegistrationCannotBeEdited" xml:space="preserve">
+    <value>RegistrationCannotBeEdited</value>
+  </data>
+  <data name="RequiredCpf" xml:space="preserve">
+    <value>RequiredCpf</value>
+  </data>
+  <data name="RequiredJusticeSecret" xml:space="preserve">
+    <value>RequiredJusticeSecret</value>
+  </data>
+  <data name="RequiredMail" xml:space="preserve">
+    <value>RequiredMail</value>
+  </data>
+  <data name="RequiredName" xml:space="preserve">
+    <value>RequiredName</value>
+  </data>
   <data name="RequiredPage" xml:space="preserve">
     <value>RequiredPage</value>
     <comment>Page required.</comment>
+  </data>
+  <data name="RequiredPhotograph" xml:space="preserve">
+    <value>RequiredPhotograph</value>
+  </data>
+  <data name="RequiredProcessId" xml:space="preserve">
+    <value>RequiredProcessId</value>
+  </data>
+  <data name="RequiredResponsibles" xml:space="preserve">
+    <value>RequiredResponsibles</value>
+  </data>
+  <data name="RequiredSituationId" xml:space="preserve">
+    <value>RequiredSituationId</value>
+  </data>
+  <data name="RequiredUnifiedProcessNumber" xml:space="preserve">
+    <value>RequiredUnifiedProcessNumber</value>
   </data>
   <data name="UnexpectedError" xml:space="preserve">
     <value>UnexpectedError</value>

@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS public.responsible
 	cpf bigint NULL,
 	name character varying(400) NULL,
 	mail character varying(400) NULL,
-	photograph character varying(400) NULL,
+	photograph text NULL,
     CONSTRAINT responsible_pkey PRIMARY KEY (id)
 );
 
