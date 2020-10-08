@@ -1,16 +1,16 @@
-﻿using CourtCaseManagement.Test.Scenario.Extensions;
+﻿using CourtCaseManagement.ApplicationCore.TOs;
+using CourtCaseManagement.Test.Scenario.Extensions;
 using Newtonsoft.Json;
 using System.Net;
 using System.Threading.Tasks;
 
 namespace CourtCaseManagement.Test.Scenario.Helpers
 {
-    public static class HttpClientHelper
+    internal static class HttpClientHelper
     {
-        public static async Task<T> GetAsync<T>(string uri, string token) where T : class
+        public static async Task<T> GetAsync<T>(string uri) where T : class
         {
             Variable.Client.DefaultRequestHeaders.Clear();
-            Variable.Client.DefaultRequestHeaders.Add("Authorization", token);
 
             var response = await Variable.Client.GetAsync(uri);
 
@@ -32,10 +32,9 @@ namespace CourtCaseManagement.Test.Scenario.Helpers
             }
         }
 
-        public static async Task<T> PostAsync<T>(string uri, string token, object o) where T : class
+        public static async Task<T> PostAsync<T>(string uri, object o) where T : class
         {
             Variable.Client.DefaultRequestHeaders.Clear();
-            Variable.Client.DefaultRequestHeaders.Add("Authorization", token);
 
             var response = await Variable.Client.PostAsync(uri, o.ToStringContent());
 
@@ -57,10 +56,9 @@ namespace CourtCaseManagement.Test.Scenario.Helpers
             }
         }
 
-        public static async Task<T> PutAsync<T>(string uri, object body, string token) where T : class
+        public static async Task<T> PutAsync<T>(string uri, object body) where T : class
         {
             Variable.Client.DefaultRequestHeaders.Clear();
-            Variable.Client.DefaultRequestHeaders.Add("Authorization", token);
 
             var response = await Variable.Client.PutAsync(uri, body.ToStringContent());
 
@@ -86,15 +84,15 @@ namespace CourtCaseManagement.Test.Scenario.Helpers
         {
             if (Variable.StatusCode == HttpStatusCode.NotFound)
             {
-                //Variable.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessageTO>(stringResponse);
+                Variable.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessageTO>(stringResponse);
             }
             if (Variable.StatusCode == HttpStatusCode.BadRequest)
             {
-                //Variable.ErrorsResponse = JsonConvert.DeserializeObject<ErrorsResponseTO>(stringResponse);
+                Variable.ErrorsResponse = JsonConvert.DeserializeObject<ErrorsResponseTO>(stringResponse);
             }
             if (Variable.StatusCode == HttpStatusCode.InternalServerError)
             {
-                //Variable.ErrorTrace = JsonConvert.DeserializeObject<ErrorTraceTO>(stringResponse);
+                Variable.ErrorTrace = JsonConvert.DeserializeObject<ErrorTraceTO>(stringResponse);
             }
         }
     }

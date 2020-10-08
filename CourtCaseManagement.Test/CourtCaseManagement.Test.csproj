@@ -7,18 +7,63 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Process\DeleteAsync.feature.cs" />
+    <Compile Remove="Process\ListAsync.feature.cs" />
+    <Compile Remove="Process\UpdateAsync.feature.cs" />
+    <Compile Remove="Responsible\AddAsync.feature.cs" />
+    <Compile Remove="Responsible\DeleteAsync.feature.cs" />
+    <Compile Remove="Responsible\ListAsync.feature.cs" />
+    <Compile Remove="Responsible\UpdateAsync.feature.cs" />
+    <Compile Remove="UnitTest1.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Process\jdxomzjr.aej~" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SpecFlowFeatureFiles Remove="Process\DeleteAsync.feature" />
+    <SpecFlowFeatureFiles Remove="Process\ListAsync.feature" />
+    <SpecFlowFeatureFiles Remove="Process\UpdateAsync.feature" />
+    <SpecFlowFeatureFiles Remove="Responsible\AddAsync.feature" />
+    <SpecFlowFeatureFiles Remove="Responsible\DeleteAsync.feature" />
+    <SpecFlowFeatureFiles Remove="Responsible\ListAsync.feature" />
+    <SpecFlowFeatureFiles Remove="Responsible\UpdateAsync.feature" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.0.2" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.WebHost" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.8" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.8" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+    <PackageReference Include="Moq" Version="4.14.6" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.1.0" />
     <PackageReference Include="MSTest.TestFramework" Version="2.1.0" />
-    <PackageReference Include="coverlet.collector" Version="1.2.0" />
+    <PackageReference Include="NUnit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
+    <PackageReference Include="SpecFlow" Version="3.3.57" />
+    <PackageReference Include="SpecFlow.NUnit" Version="3.3.57" />
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.3.57" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.6.3" />
+    <PackageReference Include="xunit" Version="2.4.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CourtCaseManagement.Api\CourtCaseManagement.Api.csproj" />
     <ProjectReference Include="..\CourtCaseManagement.ApplicationCore\CourtCaseManagement.ApplicationCore.csproj" />
     <ProjectReference Include="..\CourtCaseManagement.Infrastructure\CourtCaseManagement.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Responsible\" />
   </ItemGroup>
 
 </Project>

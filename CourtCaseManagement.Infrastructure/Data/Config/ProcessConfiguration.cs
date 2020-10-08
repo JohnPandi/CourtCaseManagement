@@ -52,7 +52,8 @@ namespace CourtCaseManagement.Infrastructure.Data.Config
                 .HasForeignKey(process => process.LinkedProcessId);
 
             builder.HasMany(process => process.ProcessResponsible)
-                .WithOne(processResponsible => processResponsible.Process);
+                .WithOne(processResponsible => processResponsible.Process)
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(process => process.Situation)
                 .WithMany(situation => situation.Processes);

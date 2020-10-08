@@ -4,6 +4,8 @@ using CourtCaseManagement.ApplicationCore.Interfaces;
 using CourtCaseManagement.ApplicationCore.Services;
 using CourtCaseManagement.Infrastructure.Data;
 using CourtCaseManagement.Infrastructure.Logging;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
@@ -20,11 +22,9 @@ namespace CourtCaseManagement.Api
     {
         public virtual void AddDatabaseConfigure(IServiceCollection services)
         {
-            var billetConnection = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
+            var connection = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
 
-            Console.WriteLine("DB_CONNECTION_STRING: " + billetConnection);
-
-            services.AddEntityFrameworkNpgsql().AddDbContext<CatalogContext>(c => c.UseNpgsql(billetConnection));
+            services.AddEntityFrameworkNpgsql().AddDbContext<CatalogContext>(c => c.UseNpgsql(connection));
         }
 
         public virtual void AddApplicationCoreClassDependencyInject(IServiceCollection services)
@@ -72,6 +72,24 @@ namespace CourtCaseManagement.Api
 
             services.AddControllers().AddNewtonsoftJson(options =>
                 options.SerializerSettings.Converters.Add(new StringEnumConverter()));
+        }
+
+        public virtual void SwaggerConfigure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            app.UseSwagger();
+
+            app.UseSwagger(c =>
+            {
+                c.RouteTemplate = "swagger/{documentName}/swagger.json";
+            });
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Court Case Management V1");
+                c.RoutePrefix = "swagger";
+
+                c.InjectStylesheet("/css/custom_swagger.css");
+            });
         }
     }
 }

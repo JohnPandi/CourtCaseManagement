@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CourtCaseManagement.Test.Scenario.Extensions
 {
-    public static class CommonExtension
+    internal static class CommonExtension
     {
         public static void AddTransientMock<I, C>(this IServiceCollection services, C c) where I : class where C : I
         {

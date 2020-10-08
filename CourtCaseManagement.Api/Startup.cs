@@ -22,9 +22,9 @@ namespace CourtCaseManagement.Api
         public void ConfigureServices(IServiceCollection services)
         {
             Config.AddSwaggerConfigure(services);
-            Config.AddDatabaseConfigure(services);
             Config.AddInfrastructureClassDependencyInject(services);
             Config.AddApplicationCoreClassDependencyInject(services);
+            Config.AddDatabaseConfigure(services);
 
             services.AddControllers();
             services.AddApiVersioning();
@@ -49,20 +49,7 @@ namespace CourtCaseManagement.Api
                 endpoints.MapControllers();
             });
 
-            app.UseSwagger();
-
-            app.UseSwagger(c =>
-            {
-                c.RouteTemplate = "swagger/{documentName}/swagger.json";
-            });
-
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Court Case Management V1");
-                c.RoutePrefix = "swagger";
-
-                c.InjectStylesheet("/css/custom_swagger.css");
-            });
+            Config.SwaggerConfigure(app, env);
         }
     }
 }
