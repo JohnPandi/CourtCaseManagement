@@ -8,12 +8,7 @@
 
   <ItemGroup>
     <Compile Remove="Process\DeleteAsync.feature.cs" />
-    <Compile Remove="Process\ListAsync.feature.cs" />
-    <Compile Remove="Process\UpdateAsync.feature.cs" />
-    <Compile Remove="Responsible\AddAsync.feature.cs" />
     <Compile Remove="Responsible\DeleteAsync.feature.cs" />
-    <Compile Remove="Responsible\ListAsync.feature.cs" />
-    <Compile Remove="Responsible\UpdateAsync.feature.cs" />
     <Compile Remove="UnitTest1.cs" />
   </ItemGroup>
 
@@ -23,12 +18,7 @@
 
   <ItemGroup>
     <SpecFlowFeatureFiles Remove="Process\DeleteAsync.feature" />
-    <SpecFlowFeatureFiles Remove="Process\ListAsync.feature" />
-    <SpecFlowFeatureFiles Remove="Process\UpdateAsync.feature" />
-    <SpecFlowFeatureFiles Remove="Responsible\AddAsync.feature" />
     <SpecFlowFeatureFiles Remove="Responsible\DeleteAsync.feature" />
-    <SpecFlowFeatureFiles Remove="Responsible\ListAsync.feature" />
-    <SpecFlowFeatureFiles Remove="Responsible\UpdateAsync.feature" />
   </ItemGroup>
 
   <ItemGroup>
@@ -60,10 +50,6 @@
     <ProjectReference Include="..\CourtCaseManagement.Api\CourtCaseManagement.Api.csproj" />
     <ProjectReference Include="..\CourtCaseManagement.ApplicationCore\CourtCaseManagement.ApplicationCore.csproj" />
     <ProjectReference Include="..\CourtCaseManagement.Infrastructure\CourtCaseManagement.Infrastructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Responsible\" />
   </ItemGroup>
 
 </Project>

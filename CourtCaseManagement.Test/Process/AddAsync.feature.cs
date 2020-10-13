@@ -75,14 +75,14 @@ namespace CourtCaseManagement.Test.Process
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Cadastra novo processo")]
-        [NUnit.Framework.CategoryAttribute("AddAsync")]
+        [NUnit.Framework.DescriptionAttribute("Cadastrar novo processo")]
+        [NUnit.Framework.CategoryAttribute("ProcessAddAsync")]
         [NUnit.Framework.TestCaseAttribute("\"3513038-00.2016.8.23.0023\"", "\"2020-10-07\"", "\"S\"", "\"C\"", "\"teste 1\"", "\"Em andamento\"", "\"237.958.172-00\"", "\"Nicolas Thales Carlos Moraes\"", "\"nicolas@gmail.com\"", "\"teste\"", null)]
         [NUnit.Framework.TestCaseAttribute("\"3513038-00.2016.8.23.0024\"", "\"\"", "\"N\"", "\"\"", "\"\"", "\"Desmembrado\"", "\"558.526.150-99\"", "\"Murilo Miguel Benício Ribeiro\"", "\"murilo@gmail.com\"", "\"teste\"", null)]
-        public virtual void CadastraNovoProcesso(string unifiedProcessNumber, string distributionDate, string justiceSecret, string clientPhysicalFolder, string description, string situationId, string responsiblesCpf, string responsiblesName, string responsiblesEMail, string image, string[] exampleTags)
+        public virtual void CadastrarNovoProcesso(string unifiedProcessNumber, string distributionDate, string justiceSecret, string clientPhysicalFolder, string description, string situationId, string responsiblesCpf, string responsiblesName, string responsiblesEMail, string image, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "AddAsync"};
+                    "ProcessAddAsync"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -99,7 +99,7 @@ namespace CourtCaseManagement.Test.Process
             argumentsOfScenario.Add("responsiblesName", responsiblesName);
             argumentsOfScenario.Add("responsiblesEMail", responsiblesEMail);
             argumentsOfScenario.Add("image", image);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cadastra novo processo", null, tagsOfScenario, argumentsOfScenario);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cadastrar novo processo", null, tagsOfScenario, argumentsOfScenario);
 #line 9
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -151,10 +151,103 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And(string.Format("com a foto do responsável {0}", image), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
 #line 20
- testRunner.When("solicitar o cancelamento do boleto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+ testRunner.When("solicitar o cadastro do processo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line hidden
 #line 21
- testRunner.Then("o sistema retornara o boleto na situação cancelado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+ testRunner.Then("o sistema retornara o código 201", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Cadastrar novo processo sem informar todos os campos obrigatórios")]
+        [NUnit.Framework.CategoryAttribute("ProcessAddAsync")]
+        [NUnit.Framework.TestCaseAttribute("\"3513038-00.2016.8.23.0023\"", "\"2020-10-07\"", "\"S\"", "\"C\"", "\"teste 1\"", "\"Em andamento\"", "\"\"", "\"Nicolas Thales Carlos Moraes\"", "\"nicolas@gmail.com\"", "\"teste\"", "\"RequiredResponsibles\"", null)]
+        [NUnit.Framework.TestCaseAttribute("\"\"", "\"\"", "\"N\"", "\"\"", "\"\"", "\"Desmembrado\"", "\"\"", "\"Murilo Miguel Benício Ribeiro\"", "\"\"", "\"teste\"", "\"RequiredResponsibles;RequiredUnifiedProcessNumber\"", null)]
+        [NUnit.Framework.TestCaseAttribute("\"\"", "\"\"", "\"\"", "\"\"", "\"\"", "\"Desmembrado\"", "\"\"", "\"Murilo Miguel Benício Ribeiro\"", "\"\"", "\"teste\"", "\"RequiredResponsibles;RequiredUnifiedProcessNumber;RequiredJusticeSecret\"", null)]
+        [NUnit.Framework.TestCaseAttribute("\"\"", "\"\"", "\"\"", "\"\"", "\"\"", "\"\"", "\"\"", "\"Murilo Miguel Benício Ribeiro\"", "\"\"", "\"teste\"", "\"RequiredResponsibles;RequiredUnifiedProcessNumber;RequiredJusticeSecret;Required" +
+            "SituationId\"", null)]
+        public virtual void CadastrarNovoProcessoSemInformarTodosOsCamposObrigatorios(string unifiedProcessNumber, string distributionDate, string justiceSecret, string clientPhysicalFolder, string description, string situationId, string responsiblesCpf, string responsiblesName, string responsiblesEMail, string image, string messages, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "ProcessAddAsync"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("unifiedProcessNumber", unifiedProcessNumber);
+            argumentsOfScenario.Add("distributionDate", distributionDate);
+            argumentsOfScenario.Add("justiceSecret", justiceSecret);
+            argumentsOfScenario.Add("clientPhysicalFolder", clientPhysicalFolder);
+            argumentsOfScenario.Add("description", description);
+            argumentsOfScenario.Add("situationId", situationId);
+            argumentsOfScenario.Add("responsiblesCpf", responsiblesCpf);
+            argumentsOfScenario.Add("responsiblesName", responsiblesName);
+            argumentsOfScenario.Add("responsiblesEMail", responsiblesEMail);
+            argumentsOfScenario.Add("image", image);
+            argumentsOfScenario.Add("messages", messages);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cadastrar novo processo sem informar todos os campos obrigatórios", null, tagsOfScenario, argumentsOfScenario);
+#line 29
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 30
+ testRunner.Given(string.Format("um funcionario cadastrando um novo processo {0}", unifiedProcessNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line hidden
+#line 31
+ testRunner.And(string.Format("com a data de distribuição {0}", distributionDate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 32
+ testRunner.And(string.Format("com o processo segredo de justiça {0}", justiceSecret), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 33
+ testRunner.And(string.Format("com a pasta física cliente {0}", clientPhysicalFolder), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 34
+ testRunner.And(string.Format("com a descrição {0}", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 35
+ testRunner.And(string.Format("com a situação {0}", situationId), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 36
+ testRunner.And(string.Format("com o cpf do responsável {0}", responsiblesCpf), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 37
+ testRunner.And(string.Format("com o nome do responsável {0}", responsiblesName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 38
+ testRunner.And(string.Format("com o e-mail do responsável {0}", responsiblesEMail), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 39
+ testRunner.And(string.Format("com a foto do responsável {0}", image), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 40
+ testRunner.When("solicitar o cadastro do processo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+#line hidden
+#line 41
+ testRunner.Then("o sistema retornara o código 400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line hidden
+#line 42
+ testRunner.And(string.Format("apresentara os seguintes codigo de erros {0}", messages), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
             }
             this.ScenarioCleanup();

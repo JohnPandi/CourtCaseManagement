@@ -23,11 +23,8 @@ namespace CourtCaseManagement.Test.Process
             
         }
 
-        [BeforeScenario("@AddAsync")]
-        public void BeforeScenario()
-        {
-            BaseBeforeScenario();
-        }
+        [BeforeScenario("@ProcessAddAsync")]
+        public void BeforeScenario() => BaseBeforeScenario();
 
         [Given(@"um funcionario cadastrando um novo processo (.*)")]
         public void DadoUmFuncionarioCadastrandoUmNovoProcesso(string unifiedProcessNumber)
@@ -89,45 +86,66 @@ namespace CourtCaseManagement.Test.Process
             Variable.Image = image.Replace("\"", string.Empty);
         }
 
-        [When(@"solicitar o cancelamento do boleto")]
-        public async Task QuandoSolicitarOCancelamentoDoBoleto()
+        [When(@"solicitar o cadastro do processo")]
+        public async Task QuandoSolicitarOCadastroDoProcesso()
         {
-           await HttpClientHelper.PostAsync<ProcessResponseTO>($"/courtCaseManagement/v1/process", await CreateProcess());
+            Variable.ProcessResponseTO = await HttpClientHelper.PostAsync<ProcessResponseTO>($"/courtCaseManagement/v1/process", await CreateProcess());
         }
-        
-        [Then(@"o sistema retornara o boleto na situação cancelado")]
-        public void EntaoOSistemaRetornaraOBoletoNaSituacaoCancelado()
+
+        [Then(@"o sistema retornara o codigo HTML de criado com sucesso")]
+        public void EntaoOSistemaRetornaraOCodigoHTMLDeCriadoComSucesso()
         {
             Assert.Equal(HttpStatusCode.Created, Variable.StatusCode);
         }
 
+        [Then(@"apresentara os seguintes codigo de erros ""(.*)""")]
+        public void EntaoApresentaraOsSeguintesCodigoDeErros(string messages)
+        {
+            var listMsg = messages.Split(";").ToList();
+            Variable.ErrorsResponse.Errors.ForEach(error => Assert.Contains(error.Validation, listMsg));
+        }
+
+        [Then(@"o sistema retornara o código (.*)")]
+        public void EntaoOSistemaRetornaraOCodigo(int statusCode)
+        {
+            Assert.Equal(statusCode, (int)Variable.StatusCode);
+        }
+
         private async Task<ProcessRequestTO> CreateProcess()
         {
-            var situationRepository = Repository.CatalogContext.Set<SituationEntity>();
-            var situationId = ((await situationRepository.ToListAsync()).First(situation => situation.Name.Trim().ToUpper() == Variable.SituationId.Trim().ToUpper())).Id;
+            Guid? situationId = null;
+            if (!string.IsNullOrEmpty(Variable.SituationId))
+            {
+                var situationRepository = Repository.CatalogContext.Set<SituationEntity>();
+                situationId = ((await situationRepository.ToListAsync()).First(situation => situation.Name.Trim().ToUpper() == Variable.SituationId.Trim().ToUpper())).Id;
+            }
 
             var responsibleRepository = Repository.CatalogContext.Set<ResponsibleEntity>();
-            var responsibleEntity = (await responsibleRepository.AddAsync(new ResponsibleEntity
+            ResponsibleEntity responsibleEntity = null;            
+            if (!string.IsNullOrEmpty(Variable.ResponsiblesCpf) && !string.IsNullOrEmpty(Variable.ResponsiblesName) && !string.IsNullOrEmpty(Variable.ResponsiblesEMail) && !string.IsNullOrEmpty(Variable.Image))
             {
-                Cpf = Convert.ToInt64(Variable.ResponsiblesCpf.Replace(".", "").Replace("-", "")),
-                Name = Variable.ResponsiblesName,
-                Mail = Variable.ResponsiblesEMail,
-                Photograph = Variable.Image,
-            })).Entity;
+                responsibleEntity = (await responsibleRepository.AddAsync(new ResponsibleEntity
+                {
+                    Cpf = Convert.ToInt64(Variable.ResponsiblesCpf.Replace(".", "").Replace("-", "")),
+                    Name = Variable.ResponsiblesName,
+                    Mail = Variable.ResponsiblesEMail,
+                    Photograph = Variable.Image,
+                })).Entity;
+            }
 
             var processRequestTO = new ProcessRequestTO
             {
                 Description = Variable.Description,
                 UpdateUserName = "teste",
                 DistributionDate = !string.IsNullOrEmpty(Variable.DistributionDate) ? (DateTime?)DateTime.ParseExact(Variable.DistributionDate, "yyyy-MM-dd", CultureInfo.CreateSpecificCulture("pt-BR")) : null,
-                JusticeSecret = Variable.JusticeSecret == "S" ? true : false,
+                JusticeSecret = !string.IsNullOrEmpty(Variable.JusticeSecret) ? (bool?)(Variable.JusticeSecret == "S" ? true : false) : null,
                 SituationId = situationId,
                 UnifiedProcessNumber = Variable.UnifiedProcessNumber,
                 ClientPhysicalFolder = Variable.ClientPhysicalFolder,
-                Responsibles = new List<Guid?>
+                Responsibles = responsibleEntity != null ? new List<Guid?>
                 {
                     responsibleEntity.Id
-                }
+                } : null
             };
 
             await Repository.CatalogContext.SaveChangesAsync();
